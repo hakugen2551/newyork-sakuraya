@@ -93,7 +93,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#1A3A6E;-webkit
 .nav-right a.active::after{content:' ★';}
 
 /* ── HERO ── */
-.hero{width:100%;height:100vh;position:relative;overflow:hidden;background:#FFFFFF;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.hero{width:100%;height:100vh;position:relative;overflow:hidden;background:#FFFFFF;display:flex;align-items:center;justify-content:center;}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;}
 .hero-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:rgba(42,85,160,0.35);pointer-events:none;}
 .hero-ph svg{width:44px;}
@@ -110,7 +110,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#1A3A6E;-webkit
 .sec-whatis h2{font-family:'Barlow',sans-serif;font-size:clamp(2rem,4.5vw,4.2rem);font-weight:800;color:#2A55A0;letter-spacing:0.04em;line-height:1.15;}
 
 /* ── FULL IMG ── */
-.sec-fullimg{width:100%;height:78vh;background:#0D2B5E;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.sec-fullimg{width:100%;height:78vh;background:#0D2B5E;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .sec-fullimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none;}
 .img-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(255,255,255,0.25);pointer-events:none;}
 .img-ph svg{width:38px;}
@@ -144,7 +144,7 @@ body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#1A3A6E;-webkit
 .menu-panel{display:none;}
 .menu-panel.active{display:block;}
 .product-card{display:grid;grid-template-columns:1fr 1fr;height:62vh;min-height:380px;}
-.photo-side{background:#F0EEEB;position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.photo-side{background:#F0EEEB;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;}
 .photo-side img.uploaded{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .photo-ph{display:flex;flex-direction:column;align-items:center;gap:10px;color:rgba(42,85,160,0.28);}
 .photo-ph svg{width:30px;}
@@ -248,13 +248,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 <main>
 
 <!-- ══ HERO ══ -->
-<section class="hero" id="top" onclick="document.getElementById('f-hero').click()">
+<section class="hero" id="top">
   <img id="hero-img" class="hero-bg" src="hero.webp" alt="NEW YORK SAKURAYA 福岡・春日市のテイクアウト専門洋菓子店" style="display:block;">
-  <div class="hero-ph" id="hero-ph" style="display:none">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-    <p>ヒーロー画像をクリックして追加</p>
-  </div>
-  <input type="file" id="f-hero" accept="image/*" onchange="upHero(this)" style="display:none">
 
   <div class="hero-logo">
     <img src="logo.png" alt="NEW YORK SAKURAYA Since 2001 ロゴ">
@@ -288,13 +283,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 </section>
 
 <!-- ══ FULL IMAGE (dark) ══ -->
-<div class="sec-fullimg" onclick="document.getElementById('f-main').click()">
+<div class="sec-fullimg">
   <img id="main-img" src="メニュー/Gemini_Generated_Image_nevqvmnevqvmnevq.png" alt="" style="display:block;">
-  <div class="img-ph" id="main-ph" style="display:none">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
-    <p>メイン画像をクリックして追加</p>
-  </div>
-  <input type="file" id="f-main" accept="image/*" onchange="upImg('main-img','main-ph',this)" style="display:none">
 </div>
 
 <!-- ══ MENU ══ -->
@@ -310,10 +300,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 <div class="menu-panel active" id="panel-food">
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-01-cream-puff.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c1">
       <span class="jp-label">シュークリーム</span>
@@ -325,10 +313,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-02-mini-pie.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c2">
       <span class="jp-label">ミニパイ</span>
@@ -340,10 +326,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-03-deco-mini-pie.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c3">
       <span class="jp-label">デコミニパイ</span>
@@ -355,10 +339,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-04-kamja-pan.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c4">
       <span class="jp-label">カムジャパン</span>
@@ -370,10 +352,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-05-pudding.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c5">
       <span class="jp-label">プリン</span>
@@ -385,10 +365,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-06-butter-sand-cookie.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c6">
       <span class="jp-label">バターサンドクッキー</span>
@@ -400,10 +378,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/food-07-fresh-gummy.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c7">
       <span class="jp-label">フレッシュグミ</span>
@@ -420,10 +396,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 <div class="menu-panel" id="panel-drink">
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-01-matcha-ole.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c4">
       <span class="jp-label">抹茶オーレ</span>
@@ -435,10 +409,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-02-hojicha-ole.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c2">
       <span class="jp-label">ほうじ茶オーレ</span>
@@ -450,10 +422,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-03-itoshima-lemonade.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c3">
       <span class="jp-label">糸島れもんレモネード</span>
@@ -465,10 +435,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-04-itoshima-squash.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c1">
       <span class="jp-label">糸島スカッシュ</span>
@@ -480,10 +448,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-05-rich-orange-juice.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c5">
       <span class="jp-label">オレンジジュース</span>
@@ -495,10 +461,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-06-iced-coffee.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c6">
       <span class="jp-label">アイスコーヒー</span>
@@ -510,10 +474,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
   <div class="product-card">
-    <div class="photo-side" onclick="this.querySelector('input').click()">
+    <div class="photo-side">
       <img loading="lazy" class="uploaded" src="images/drink-07-hot-coffee.webp" alt="">
-      <div class="photo-ph" style="display:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="28"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg><p>写真を追加</p></div>
-      <input type="file" accept="image/*" onchange="upCard(this)">
     </div>
     <div class="info-side c7">
       <span class="jp-label">ホットコーヒー</span>
@@ -575,38 +537,6 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 </footer>
 
 <script>
-function upHero(input){
-  const f=input.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const img=document.getElementById('hero-img');
-    img.src=e.target.result;img.style.display='block';
-    document.getElementById('hero-ph').style.display='none';
-  };r.readAsDataURL(f);
-}
-
-function upImg(imgId,phId,input){
-  const f=input.files[0];if(!f)return;
-  const r=new FileReader();
-  r.onload=e=>{
-    const img=document.getElementById(imgId);
-    img.src=e.target.result;img.style.display='block';
-    document.getElementById(phId).style.display='none';
-  };r.readAsDataURL(f);
-}
-
-function upCard(input){
-  const f=input.files[0];if(!f)return;
-  const side=input.closest('.photo-side');
-  const r=new FileReader();
-  r.onload=e=>{
-    let img=side.querySelector('img.uploaded');
-    if(!img){img=document.createElement('img');img.className='uploaded';side.prepend(img);}
-    img.src=e.target.result;
-    side.querySelector('.photo-ph').style.display='none';
-  };r.readAsDataURL(f);
-}
-
 function switchTab(tab,btn){
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.querySelectorAll('.menu-panel').forEach(p=>p.classList.remove('active'));
@@ -680,4 +610,5 @@ window.addEventListener('scroll',()=>{
 </script>
 </body>
 </html>
+
 
