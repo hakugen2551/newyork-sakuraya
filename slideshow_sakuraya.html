@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>New York 桜屋 since 2001</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #000;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  #stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    background: #000;
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+
+  .slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    display: block;
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+
+  #controls {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 50;
+  }
+
+  #controls button {
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.25);
+    color: #fff;
+    padding: 8px 22px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    backdrop-filter: blur(6px);
+    transition: background 0.2s;
+  }
+
+  #controls button:hover { background: rgba(255,255,255,0.2); }
+
+  #counter {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    color: rgba(255,255,255,0.35);
+    font-size: 0.8rem;
+    opacity: 0;
+    transition: opacity 0.4s;
+    z-index: 50;
+    font-family: sans-serif;
+  }
+</style>
+</head>
+<body>
+
+<div id="stage"></div>
+
+<div id="controls">
+  <button id="btnPrev">◀ 前</button>
+  <button id="btnPause">⏸ 一時停止</button>
+  <button id="btnNext">次 ▶</button>
+  <button id="btnFs">⛶ 全画面</button>
+</div>
+<div id="counter"></div>
+
+<script>
+  const FOLDER = "New York桜屋since2001/";
+  const INTERVAL = 4000;
+
+  const images = [
+    "175.JPG",
+    "176.JPG",
+    "186.JPG",
+    "187.JPG",
+    "190.JPG",
+    "CIMG2078.JPG",
+    "CIMG2081.JPG",
+    "CIMG2383.JPG",
+    "CIMG2385.JPG",
+    "CIMG2390.JPG",
+    "CIMG2393.JPG",
+    "IMG_0768.JPG",
+    "IMG_0773.JPG",
+    "IMG_0776.JPG",
+    "IMG_0796.JPG",
+    "IMG_1532.JPG",
+    "IMG_2611.JPG",
+    "IMG_2628.JPG",
+    "IMG_4020.JPG",
+    "IMG_4021.JPG",
+    "IMG_4028.JPG",
+    "IMG_4034.JPG",
+    "IMG_4035.JPG",
+    "IMG_4036.JPG",
+    "IMG_4037.JPG",
+    "IMG_4038.JPG",
+    "IMG_4039.JPG",
+    "SANY0008.JPG",
+    "SANY0014.JPG",
+    "SANY0015.JPG",
+    "SANY0025.JPG",
+    "SANY0030.JPG",
+    "SANY0033.JPG",
+    "NY2006.6 010.jpg",
+    "NY2006.6 011.jpg",
+    "NY2006.6 014.jpg",
+    "NY2006.6 015.jpg",
+    "画像バンフ001 078.jpg",
+    "画像バンフ001 082.jpg",
+    "画像バンフ001 083.jpg",
+    "画像バンフ001 084.jpg",
+    "画像バンフ001 120.jpg",
+    "画像バンフ001 140.jpg",
+    "蔡頭取とパーティー会場にて.JPG"
+  ];
+
+  const stage    = document.getElementById('stage');
+  const counter  = document.getElementById('counter');
+  const controls = document.getElementById('controls');
+  const btnPrev  = document.getElementById('btnPrev');
+  const btnNext  = document.getElementById('btnNext');
+  const btnPause = document.getElementById('btnPause');
+  const btnFs    = document.getElementById('btnFs');
+
+  let slides  = [];
+  let current = 0;
+  let timer   = null;
+  let paused  = false;
+
+  images.forEach(name => {
+    const div = document.createElement('div');
+    div.className = 'slide';
+    const img = document.createElement('img');
+    img.src = FOLDER + name;
+    div.appendChild(img);
+    stage.appendChild(div);
+    slides.push(div);
+  });
+
+  function showSlide(idx) {
+    slides.forEach(s => s.classList.remove('active'));
+    slides[idx].classList.add('active');
+    counter.textContent = (idx + 1) + ' / ' + slides.length;
+  }
+
+  function next() {
+    current = (current + 1) % slides.length;
+    showSlide(current);
+  }
+
+  function prev() {
+    current = (current - 1 + slides.length) % slides.length;
+    showSlide(current);
+  }
+
+  function scheduleNext() {
+    clearTimeout(timer);
+    if (!paused) {
+      timer = setTimeout(() => { next(); scheduleNext(); }, INTERVAL);
+    }
+  }
+
+  showSlide(0);
+  scheduleNext();
+
+  // マウスが止まったらコントロールを非表示
+  let hideTimer = null;
+  function showControls() {
+    controls.style.opacity = '1';
+    counter.style.opacity = '1';
+    document.body.style.cursor = 'default';
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(() => {
+      controls.style.opacity = '0';
+      counter.style.opacity = '0';
+      document.body.style.cursor = 'none';
+    }, 2500);
+  }
+  document.addEventListener('mousemove', showControls);
+
+  // フルスクリーン
+  btnFs.addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+      btnFs.textContent = '✕ 全画面解除';
+    } else {
+      document.exitFullscreen();
+      btnFs.textContent = '⛶ 全画面';
+    }
+  });
+  document.addEventListener('fullscreenchange', () => {
+    if (!document.fullscreenElement) btnFs.textContent = '⛶ 全画面';
+  });
+
+  btnNext.addEventListener('click', () => { next(); scheduleNext(); });
+  btnPrev.addEventListener('click', () => { prev(); scheduleNext(); });
+  btnPause.addEventListener('click', () => {
+    paused = !paused;
+    btnPause.textContent = paused ? '▶ 再生' : '⏸ 一時停止';
+    if (!paused) scheduleNext();
+    else clearTimeout(timer);
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { next(); scheduleNext(); }
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   { prev(); scheduleNext(); }
+    if (e.key === ' ') { btnPause.click(); e.preventDefault(); }
+  });
+</script>
+</body>
+</html>
