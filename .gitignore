@@ -1,7 +1,26 @@
 node_modules/
 *.js.map
 package-lock.json
+
+# 設計データやドキュメント類はHPに不要
 *.ai
 *.pdf
 *.doc
 *.doc.md
+
+# APIキー類（絶対にコミットしない）
+.env
+.env.local
+
+# ローカル個人設定（PCごとに違うのでコミットしない）
+.claude/settings.local.json
+
+# 動画リール生成系（HP本体とは無関係・容量大）
+reel_output/
+scripts/
+*.mp4
+*.mov
+New\ York桜屋since2001/動画/
+
+# 現在のHPで使われていない作業ファイル
+shop_main.jpg
