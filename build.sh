@@ -17,7 +17,6 @@ cp -r images/ dist/
 
 # Cloudflare設定ファイル
 cp _headers dist/
-cp _redirects dist/
 
 echo "✅ dist/ built successfully"
 ls dist/
