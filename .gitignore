@@ -2,6 +2,9 @@ node_modules/
 *.js.map
 package-lock.json
 
+# build.sh が生成する配信用フォルダ(Cloudflare Pages 側で都度ビルドされる)
+dist/
+
 # 設計データやドキュメント類はHPに不要
 *.ai
 *.pdf
