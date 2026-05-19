@@ -32,13 +32,20 @@
 {
   "@context": "https://schema.org",
   "@type": "Bakery",
+  "@id": "https://newyork-sakuraya.com/#bakery",
   "name": "NEW YORK SAKURAYA",
-  "alternateName": "ニューヨーク桜屋",
-  "description": "福岡県春日市のテイクアウト専門洋菓子店。ニューヨークと福岡をつなぐ和洋菓子。2001年創業。",
+  "alternateName": ["ニューヨーク桜屋", "桜屋"],
+  "description": "福岡県春日市のテイクアウト専門洋菓子店。ニューヨークと福岡をつなぐ「桜屋」、和のこころで作るワールドスイーツ。2001年創業。",
   "url": "https://newyork-sakuraya.com/",
   "logo": "https://newyork-sakuraya.com/logo.webp",
-  "image": "https://newyork-sakuraya.com/hero.webp",
-  "telephone": "090-5923-9678",
+  "image": [
+    "https://newyork-sakuraya.com/hero.webp",
+    "https://newyork-sakuraya.com/images/food-04-kamja-pan-2026d.webp",
+    "https://newyork-sakuraya.com/images/food-02-mini-pie-2026.webp",
+    "https://newyork-sakuraya.com/images/food-01-cream-puff-2025b.webp",
+    "https://newyork-sakuraya.com/images/food-05-pudding.webp"
+  ],
+  "telephone": "+81-90-5923-9678",
   "email": "hakugen2551@gmail.com",
   "foundingDate": "2001",
   "address": {
@@ -54,11 +61,115 @@
     "latitude": 33.532765,
     "longitude": 130.458697
   },
-  "servesCuisine": ["洋菓子", "和洋菓子", "スイーツ"],
+  "areaServed": {
+    "@type": "City",
+    "name": "春日市",
+    "containedInPlace": { "@type": "AdministrativeArea", "name": "福岡県" }
+  },
+  "servesCuisine": ["洋菓子", "和洋菓子", "スイーツ", "ベーカリー"],
   "priceRange": "¥",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
   "sameAs": [
     "https://www.instagram.com/newyorksakuraya/"
-  ]
+  ],
+  "hasMenu": {
+    "@type": "Menu",
+    "name": "NEW YORK SAKURAYA メニュー",
+    "hasMenuSection": [
+      {
+        "@type": "MenuSection",
+        "name": "FOOD",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "シュークリーム",
+            "image": "https://newyork-sakuraya.com/images/food-01-cream-puff-2025b.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "ミニパイ",
+            "image": "https://newyork-sakuraya.com/images/food-02-mini-pie-2026.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "チョコレートミニパイ",
+            "image": "https://newyork-sakuraya.com/images/food-03-deco-mini-pie.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "カムジャパン",
+            "description": "韓国人気のジャガイモを使った焼き菓子",
+            "image": "https://newyork-sakuraya.com/images/food-04-kamja-pan-2026d.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "プリン",
+            "image": "https://newyork-sakuraya.com/images/food-05-pudding.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "バターサンドクッキー",
+            "image": "https://newyork-sakuraya.com/images/food-06-butter-sand-cookie.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "フレッシュグミ",
+            "image": "https://newyork-sakuraya.com/images/food-07-fresh-gummy.webp"
+          }
+        ]
+      },
+      {
+        "@type": "MenuSection",
+        "name": "DRINK",
+        "hasMenuItem": [
+          {
+            "@type": "MenuItem",
+            "name": "抹茶オーレ",
+            "description": "黒糖わらび餅入 / 牛乳 or 豆乳",
+            "image": "https://newyork-sakuraya.com/images/drink-01-matcha-ole.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "ほうじ茶オーレ",
+            "description": "黒糖わらび餅入 / 牛乳 or 豆乳",
+            "image": "https://newyork-sakuraya.com/images/drink-02-hojicha-ole.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "糸島れもんレモネード",
+            "image": "https://newyork-sakuraya.com/images/drink-03-itoshima-lemonade.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "糸島れもんスカッシュ",
+            "image": "https://newyork-sakuraya.com/images/drink-04-itoshima-squash.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "濃厚オレンジジュース",
+            "image": "https://newyork-sakuraya.com/images/drink-05-rich-orange-juice.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "アイスコーヒー",
+            "image": "https://newyork-sakuraya.com/images/drink-06-iced-coffee.webp"
+          },
+          {
+            "@type": "MenuItem",
+            "name": "ホットコーヒー",
+            "image": "https://newyork-sakuraya.com/images/drink-07-hot-coffee.webp"
+          }
+        ]
+      }
+    ]
+  }
 }
 </script>
 
@@ -518,7 +629,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
         <tr><td>TEL</td><td><a href="tel:09059239678" style="color:inherit;text-decoration:none;">090-5923-9678</a></td></tr>
         <tr><td>EMAIL</td><td><a href="mailto:hakugen2551@gmail.com" style="color:inherit;text-decoration:none;">hakugen2551@gmail.com</a></td></tr>
         <tr><td>HOURS</td><td>9:00 - 18:00</td></tr>
-        <tr><td>CLOSED</td><td>定休日（後ほど追加）</td></tr>
+        <tr><td>CLOSED</td><td>毎週 水曜日・日曜日</td></tr>
       </table>
     </div>
     <div class="map-wrap">
