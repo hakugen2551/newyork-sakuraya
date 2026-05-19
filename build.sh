@@ -27,5 +27,10 @@ cp "メニュー/Gemini_Generated_Image_nevqvmnevqvmnevq.png" "dist/メニュー
 # Cloudflare設定ファイル
 cp _headers dist/
 
+# SEO/AIO ルートファイル
+cp sitemap.xml dist/ 2>/dev/null || true
+cp robots.txt dist/ 2>/dev/null || true
+cp llms.txt dist/ 2>/dev/null || true
+
 echo "✅ dist/ built successfully"
 ls dist/

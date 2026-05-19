@@ -173,6 +173,90 @@
 }
 </script>
 
+<!-- 構造化データ: FAQ Page(AI検索/リッチリザルト用)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "カムジャパンとはどんなお菓子ですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "韓国で人気のジャガイモを使った焼き菓子です。NEW YORK SAKURAYAの看板商品の一つで、ジャガイモのほっこりした甘さとサクッとした焼き目が特徴です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "営業時間と定休日を教えてください",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "10:00〜18:00で営業しています。毎週水曜日が定休日です。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "テイクアウト専門ですか?店内で食べることはできますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "NEW YORK SAKURAYAはテイクアウト専門店です。店内に飲食スペースはございません。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "場所はどこにありますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "福岡県春日市伯玄町20-55-4です。西鉄春日原駅・JR春日駅から徒歩圏内、自衛隊福岡病院のすぐそばにあります。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "予約は必要ですか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "通常のテイクアウトはご予約不要です。大量のご注文や記念日用のご手配は、事前にお電話(090-5923-9678)でご相談ください。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "どんな商品がありますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "看板のカムジャパン・ミニパイ・チョコレートミニパイ・シュークリームをはじめ、プリン・バターサンドクッキー・フレッシュグミなどの焼き菓子・洋菓子と、抹茶/ほうじ茶オーレ(黒糖わらび餅入)・糸島れもんレモネード/スカッシュ・濃厚オレンジジュース・アイス/ホットコーヒーなどのドリンクをご用意しています。"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "最新のメニューや新作情報はどこで確認できますか?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Instagram @newyorksakuraya で日々の新作・季節限定情報を発信しています。"
+      }
+    }
+  ]
+}
+</script>
+
+<!-- 構造化データ: WebPage + Speakable(音声アシスタント・AI読み上げ用)-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": "https://newyork-sakuraya.com/#webpage",
+  "url": "https://newyork-sakuraya.com/",
+  "name": "NEW YORK SAKURAYA | 福岡・春日市のテイクアウト専門 洋菓子店",
+  "isPartOf": { "@id": "https://newyork-sakuraya.com/#bakery" },
+  "about": { "@id": "https://newyork-sakuraya.com/#bakery" },
+  "inLanguage": "ja-JP",
+  "speakable": {
+    "@type": "SpeakableSpecification",
+    "cssSelector": [".speakable-intro", ".speakable-faq", ".access-info table"]
+  }
+}
+</script>
+
 <!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-1MZ939FF69"></script>
 <script>
@@ -284,6 +368,15 @@ body{font-family:'Noto Sans JP',sans-serif;background:#fff;color:#1A3A6E;-webkit
 .ig-more{display:inline-block;margin-top:40px;font-family:'Barlow',sans-serif;font-size:0.68rem;font-weight:700;letter-spacing:0.22em;color:#2A55A0;text-decoration:none;border-bottom:1px solid #2A55A0;padding-bottom:3px;transition:opacity 0.2s;}
 .ig-more:hover{opacity:0.6;}
 
+/* ── FAQ ── */
+.sec-faq{padding:110px 180px;background:#fff;}
+.sec-faq h2{font-family:'Barlow',sans-serif;font-size:clamp(2rem,4.5vw,4.2rem);font-weight:800;color:#2A55A0;letter-spacing:0.04em;text-align:center;margin-bottom:56px;}
+.faq-list{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:18px;}
+.faq-item{border:1px solid #E5E7EB;border-radius:8px;padding:20px 24px;background:#FAFAF8;}
+.faq-q{font-weight:600;color:#1A3A6E;font-size:0.95rem;margin-bottom:8px;display:flex;align-items:flex-start;gap:10px;}
+.faq-q::before{content:"Q.";font-family:'Barlow',sans-serif;color:#2A55A0;flex-shrink:0;}
+.faq-a{color:#374151;font-size:0.88rem;line-height:1.85;font-weight:300;padding-left:24px;}
+
 /* ── ACCESS ── */
 .sec-access{padding:130px 180px;text-align:center;background:#fff;}
 .sec-access h2{font-family:'Barlow',sans-serif;font-size:clamp(2rem,4.5vw,4.2rem);font-weight:800;color:#2A55A0;letter-spacing:0.04em;margin-bottom:80px;}
@@ -317,7 +410,8 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   .mobile-bar{display:flex;position:fixed;top:0;left:0;right:0;padding:14px 20px;background:rgba(255,255,255,0.96);z-index:600;justify-content:space-between;align-items:center;backdrop-filter:blur(10px);}
   .mobile-bar span{font-family:'Barlow',sans-serif;font-weight:800;font-size:0.72rem;letter-spacing:0.2em;color:#2A55A0;}
   .mobile-bar a{font-family:'Barlow',sans-serif;font-size:0.62rem;color:#2A55A0;text-decoration:none;font-weight:700;letter-spacing:0.1em;}
-  .sec-whatis,.sec-concept,.sec-menu,.sec-access,.sec-instagram{padding-left:28px;padding-right:28px;}
+  .sec-whatis,.sec-concept,.sec-menu,.sec-access,.sec-instagram,.sec-faq{padding-left:28px;padding-right:28px;}
+  .sec-faq{padding-top:70px;padding-bottom:70px;}
   .sec-instagram{padding-top:70px;padding-bottom:70px;}
   .sec-whatis{padding-top:70px;padding-bottom:70px;}
   .sec-concept{padding-top:70px;padding-bottom:70px;}
@@ -377,6 +471,11 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 <!-- ══ WHAT IS ══ -->
 <section class="sec-whatis" id="about">
   <h2>WHAT IS<br>NEW YORK SAKURAYA?</h2>
+  <div class="concept-body speakable-intro" style="margin-top:56px;">
+    <p><strong>NEW YORK SAKURAYA(ニューヨーク桜屋)</strong>は、福岡県春日市にある2001年創業のテイクアウト専門洋菓子店です。</p>
+    <p>ニューヨークと福岡をつなぐ「桜屋」として、和のこころで作るワールドスイーツを毎日手づくりでお届けしています。</p>
+    <p>看板商品の<strong>カムジャパン</strong>(韓国で人気のジャガイモを使った焼き菓子)・<strong>ミニパイ</strong>・<strong>シュークリーム</strong>をはじめ、プリン・バターサンドクッキー・フレッシュグミなどの定番スイーツ、抹茶/ほうじ茶オーレや糸島れもんを使ったドリンクまで、幅広くご用意しています。</p>
+  </div>
 </section>
 
 <!-- ══ TWO COL IMAGES ══ -->
@@ -397,7 +496,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
 <!-- ══ FULL IMAGE (dark) ══ -->
 <div class="sec-fullimg">
-  <img id="main-img" src="メニュー/Gemini_Generated_Image_nevqvmnevqvmnevq.png" alt="" style="display:block;">
+  <img id="main-img" src="メニュー/Gemini_Generated_Image_nevqvmnevqvmnevq.png" alt="NEW YORK SAKURAYA 桜屋の和洋スイーツのイメージビジュアル" style="display:block;">
 </div>
 
 <!-- ══ MENU ══ -->
@@ -414,7 +513,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-01-cream-puff-2025b.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-01-cream-puff-2025b.webp" alt="NEW YORK SAKURAYA のシュークリーム — 外はサクサク、中は濃厚カスタード">
     </div>
     <div class="info-side c1">
       <span class="jp-label">シュークリーム</span>
@@ -428,7 +527,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-02-mini-pie-2026.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-02-mini-pie-2026.webp" alt="NEW YORK SAKURAYA のミニパイ — サクサクのパイ生地">
     </div>
     <div class="info-side c2">
       <span class="jp-label">ミニパイ</span>
@@ -441,7 +540,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-03-deco-mini-pie.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-03-deco-mini-pie.webp" alt="NEW YORK SAKURAYA のチョコレートミニパイ — チョコレートをまとった贅沢なミニパイ">
     </div>
     <div class="info-side c3">
       <span class="jp-label">チョコレートミニパイ</span>
@@ -454,7 +553,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-04-kamja-pan-2026d.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-04-kamja-pan-2026d.webp" alt="NEW YORK SAKURAYA のカムジャパン — 韓国で人気のジャガイモを使った焼き菓子">
     </div>
     <div class="info-side c4">
       <span class="jp-label">カムジャパン</span>
@@ -468,7 +567,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-05-pudding.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-05-pudding.webp" alt="NEW YORK SAKURAYA のプリン — 卵と牛乳のなめらかプリン">
     </div>
     <div class="info-side c5">
       <span class="jp-label">プリン</span>
@@ -481,7 +580,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-06-butter-sand-cookie.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-06-butter-sand-cookie.webp" alt="NEW YORK SAKURAYA のバターサンドクッキー — 手づくり焼き菓子">
     </div>
     <div class="info-side c6">
       <span class="jp-label">バターサンドクッキー</span>
@@ -494,7 +593,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/food-07-fresh-gummy.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/food-07-fresh-gummy.webp" alt="NEW YORK SAKURAYA のフレッシュグミ — フルーツの香り豊かなグミ菓子">
     </div>
     <div class="info-side c7">
       <span class="jp-label">フレッシュグミ</span>
@@ -512,7 +611,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-01-matcha-ole.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-01-matcha-ole.webp" alt="NEW YORK SAKURAYA の抹茶オーレ — 黒糖わらび餅入(牛乳または豆乳)">
     </div>
     <div class="info-side c4">
       <span class="jp-label">抹茶オーレ</span>
@@ -525,7 +624,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-02-hojicha-ole.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-02-hojicha-ole.webp" alt="NEW YORK SAKURAYA のほうじ茶オーレ — 黒糖わらび餅入(牛乳または豆乳)">
     </div>
     <div class="info-side c2">
       <span class="jp-label">ほうじ茶オーレ</span>
@@ -538,7 +637,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-03-itoshima-lemonade.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-03-itoshima-lemonade.webp" alt="NEW YORK SAKURAYA の糸島れもんレモネード — 福岡県糸島産レモン使用">
     </div>
     <div class="info-side c3">
       <span class="jp-label">糸島れもんレモネード</span>
@@ -551,7 +650,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-04-itoshima-squash.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-04-itoshima-squash.webp" alt="NEW YORK SAKURAYA の糸島れもんスカッシュ — 糸島レモンの炭酸ドリンク">
     </div>
     <div class="info-side c1">
       <span class="jp-label">糸島スカッシュ</span>
@@ -564,7 +663,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-05-rich-orange-juice.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-05-rich-orange-juice.webp" alt="NEW YORK SAKURAYA の濃厚オレンジジュース">
     </div>
     <div class="info-side c5">
       <span class="jp-label">オレンジジュース</span>
@@ -577,7 +676,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-06-iced-coffee.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-06-iced-coffee.webp" alt="NEW YORK SAKURAYA のアイスコーヒー">
     </div>
     <div class="info-side c6">
       <span class="jp-label">アイスコーヒー</span>
@@ -590,7 +689,7 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
 
   <div class="product-card">
     <div class="photo-side">
-      <img loading="lazy" class="uploaded" src="images/drink-07-hot-coffee.webp" alt="">
+      <img loading="lazy" class="uploaded" src="images/drink-07-hot-coffee.webp" alt="NEW YORK SAKURAYA のホットコーヒー">
     </div>
     <div class="info-side c7">
       <span class="jp-label">ホットコーヒー</span>
@@ -602,6 +701,45 @@ footer{background:#fff;padding:80px 180px 40px;text-align:center;border-top:1px 
   </div>
 
 </div><!-- /panel-drink -->
+
+<!-- ══ FAQ ══ -->
+<section class="sec-faq" id="faq">
+  <h2>FAQ</h2>
+  <div class="faq-list speakable-faq">
+    <div class="faq-item">
+      <p class="faq-q">カムジャパンとはどんなお菓子ですか？</p>
+      <p class="faq-a">韓国で人気のジャガイモを使った焼き菓子です。NEW YORK SAKURAYAの看板商品の一つで、ジャガイモのほっこりした甘さとサクッとした焼き目が特徴です。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">営業時間と定休日を教えてください</p>
+      <p class="faq-a">10:00〜18:00 で営業しています。毎週水曜日が定休日です。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">テイクアウト専門ですか？店内で食べることはできますか？</p>
+      <p class="faq-a">NEW YORK SAKURAYAはテイクアウト専門店です。店内に飲食スペースはございません。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">場所はどこにありますか？</p>
+      <p class="faq-a">福岡県春日市伯玄町20-55-4 です。西鉄春日原駅・JR春日駅から徒歩圏内、自衛隊福岡病院のすぐそばにあります。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">予約は必要ですか？</p>
+      <p class="faq-a">通常のテイクアウトはご予約不要です。大量のご注文や記念日用のご手配は、事前にお電話(090-5923-9678)でご相談ください。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">支払い方法は何が使えますか？</p>
+      <p class="faq-a">詳細はお電話または店頭でお気軽にお問い合わせください。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">どんな商品がありますか？</p>
+      <p class="faq-a">看板のカムジャパン・ミニパイ・チョコレートミニパイ・シュークリームをはじめ、プリン・バターサンドクッキー・フレッシュグミなどの焼き菓子・洋菓子と、抹茶/ほうじ茶オーレ(黒糖わらび餅入)・糸島れもんレモネード/スカッシュ・濃厚オレンジジュース・アイス/ホットコーヒーなどのドリンクをご用意しています。</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">最新のメニューや新作情報はどこで確認できますか？</p>
+      <p class="faq-a">Instagram <a href="https://www.instagram.com/newyorksakuraya/" target="_blank" rel="noopener" style="color:#2A55A0;">@newyorksakuraya</a> で日々の新作・季節限定情報を発信しています。</p>
+    </div>
+  </div>
+</section>
 
 <!-- ══ INSTAGRAM ══ -->
 <section class="sec-instagram">

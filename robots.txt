@@ -1,0 +1,60 @@
+# NEW YORK SAKURAYA (https://newyork-sakuraya.com/) - robots.txt
+# AI検索エンジン(ChatGPT/Claude/Perplexity等)からの参照も歓迎します。
+
+# ─── AI search / LLM crawlers (明示的に許可) ───────────────
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+User-agent: MistralAI-User
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# ─── 一般検索エンジン ─────────────────────────────────────
+User-agent: *
+Allow: /
+
+Sitemap: https://newyork-sakuraya.com/sitemap.xml
