@@ -19,10 +19,8 @@ cp -r images/ dist/
 # sakuraya-webp/ (TWO COL スライドショーで使う背景写真44枚)
 cp -r sakuraya-webp/ dist/ 2>/dev/null || true
 
-# メニュー/ の中で本番が参照するアセットだけ個別に運ぶ
-# (源PNG群はデプロイ対象外 — リポサイズ節約のため)
-mkdir -p "dist/メニュー"
-cp "メニュー/Gemini_Generated_Image_nevqvmnevqvmnevq.png" "dist/メニュー/" 2>/dev/null || true
+# メニュー/ 配下の源PNG群はデプロイ対象外(リポサイズ節約のため)
+# 2026-05-25 集合写真(Gemini画像)はHPから削除されたため cp 不要に
 
 # Cloudflare設定ファイル
 cp _headers dist/
