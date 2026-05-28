@@ -24,9 +24,16 @@ cp -r sakuraya-webp/ dist/ 2>/dev/null || true
 mkdir -p dist/store-display
 cp slideshow_sakuraya.html dist/store-display/index.html
 cp -r store-photos/ dist/store-display/store-photos/
+# Cloudflare Workers の 25MiB asset上限超のファイルを除外(動画/大容量画像対策)
+# 主に MP4 や iPhone のフルサイズHEIC等を弾く
+find dist/store-display/store-photos/ -type f -size +20M -delete 2>/dev/null || true
+# 動画系はそもそも配信しない方針(スライドショーはjpgのみ使用)
+rm -rf dist/store-display/store-photos/動画 2>/dev/null || true
+find dist/store-display/store-photos/ -type f \( -iname "*.mp4" -o -iname "*.mov" -o -iname "*.avi" \) -delete 2>/dev/null || true
 echo "store-display contents:"
 ls -la dist/store-display/
 echo "  photos count: $(ls dist/store-display/store-photos/ 2>/dev/null | wc -l)"
+echo "  total size: $(du -sh dist/store-display/store-photos/ 2>/dev/null | cut -f1)"
 
 # メニュー/ 配下の源PNG群はデプロイ対象外(リポサイズ節約のため)
 # 2026-05-25 集合写真(Gemini画像)はHPから削除されたため cp 不要に
