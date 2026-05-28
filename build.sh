@@ -21,14 +21,12 @@ cp -r sakuraya-webp/ dist/ 2>/dev/null || true
 
 # 店舗モニター用スライドショー(隠しパス /store-display/、noindex設定済)
 # Fire TV Silk Browser等で newyork-sakuraya.com/store-display/ にアクセスして使う
-# ローカル開発時のフォルダ名「New York桜屋since2001」を、本番では英語名「photos」にrename
-# (CloudflareのLinuxビルド環境で日本語フォルダ名のcpが不安定なため)
 mkdir -p dist/store-display
-sed 's|"New York桜屋since2001/"|"photos/"|g' slideshow_sakuraya.html > dist/store-display/index.html
-cp -r "New York桜屋since2001" dist/store-display/photos 2>/dev/null || true
+cp slideshow_sakuraya.html dist/store-display/index.html
+cp -r store-photos/ dist/store-display/store-photos/
 echo "store-display contents:"
-ls -la dist/store-display/ | head -5
-ls dist/store-display/photos/ 2>/dev/null | wc -l | xargs -I{} echo "  photos/ has {} files"
+ls -la dist/store-display/
+echo "  photos count: $(ls dist/store-display/store-photos/ 2>/dev/null | wc -l)"
 
 # メニュー/ 配下の源PNG群はデプロイ対象外(リポサイズ節約のため)
 # 2026-05-25 集合写真(Gemini画像)はHPから削除されたため cp 不要に
