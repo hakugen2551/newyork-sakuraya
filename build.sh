@@ -19,6 +19,12 @@ cp -r images/ dist/
 # sakuraya-webp/ (TWO COL スライドショーで使う背景写真44枚)
 cp -r sakuraya-webp/ dist/ 2>/dev/null || true
 
+# 店舗モニター用スライドショー(隠しパス /store-display/、noindex設定済)
+# Fire TV Silk Browser等で newyork-sakuraya.com/store-display/ にアクセスして使う
+mkdir -p dist/store-display
+cp slideshow_sakuraya.html dist/store-display/index.html
+cp -r "New York桜屋since2001" dist/store-display/ 2>/dev/null || true
+
 # メニュー/ 配下の源PNG群はデプロイ対象外(リポサイズ節約のため)
 # 2026-05-25 集合写真(Gemini画像)はHPから削除されたため cp 不要に
 

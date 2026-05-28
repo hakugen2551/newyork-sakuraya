@@ -56,5 +56,6 @@ Allow: /
 # ─── 一般検索エンジン ─────────────────────────────────────
 User-agent: *
 Allow: /
+Disallow: /store-display/
 
 Sitemap: https://newyork-sakuraya.com/sitemap.xml
